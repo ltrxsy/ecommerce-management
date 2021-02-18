@@ -2,15 +2,23 @@ import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "./login.less";
 import axios from "axios";
+import {withRouter} from 'react-router-dom';
 
-const LoginForm = () => {
+
+const LoginForm = (props) => {
+  const {setUser} =props;
+
+
+
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
     axios
       .post("/api/login", values)
       .then((res) => {
-        if (res.status === 200 && res.data.login) {
-          console.log("login succesfully");
+        if (res.status === 200 ) {
+          // login successfully, jump to /
+          setUser(res.data.user)
+          props.history.push('/');
         }
       })
       .catch((err) => {
@@ -87,7 +95,7 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default withRouter(LoginForm);
 
 /*
  API:/login

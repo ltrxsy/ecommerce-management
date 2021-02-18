@@ -1,12 +1,12 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.less';
 import 'antd/dist/antd.css';
-import { DatePicker } from 'antd';
-import LoginForm from './components/login/login';
+import Router from './router/router';
+
 function App() {
   return (
     <div className="App">
-      <LoginForm />
+      <Router />
     </div>
   );
 }
