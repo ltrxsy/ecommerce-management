@@ -10,17 +10,20 @@ import Admin from '../components/admin/admin';
 const Router =()=>{
     let [user, setUser]=useState(null)
 
-
     const commonProps ={user, setUser}
+
     return (
         <HashRouter>
-            <Route path='/' exact render={()=>{
-                if (user !== null) return <Admin />
-                else return <LoginForm {...commonProps}/>
+            <Route path='/' exact render={ ()=>{
+                if (user !== null || localStorage.getItem('user')){
+                    return <Admin {...commonProps} />
+                } else {
+                    return <LoginForm {...commonProps}/>
+                }
             }}/>
-            <Route path="/signin" exact render={()=>
-                {return <loginForm {...commonProps}/>
-               }}/>
+            <Route path="/signin" exact render={ ()=>
+                {return <LoginForm {...commonProps}/>
+            }}/>
         </HashRouter>
     )
 }
