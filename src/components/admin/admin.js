@@ -1,16 +1,22 @@
 import React from 'react';
 import { Layout } from 'antd';
 import AdminHeader from '../header/header';
+import LeftMenu from '../menu/menu';
+import './admin.less';
+import GoodsSummary from '../goodssummary/goodssummary';
 
 const { Footer, Sider, Content } = Layout;
+
 
 const Admin =(props)=>{
     return(
     <Layout>
-      <Sider>Sider</Sider>
+      <Sider style={{width: 240}}>
+        <LeftMenu {...props} />
+      </Sider>
       <Layout>
-        <AdminHeader {...props}/> 
-        <Content>Content</Content>
+        <AdminHeader {...props} /> 
+        <Content>{props.children}</Content>
         <Footer>Footer</Footer>
       </Layout>
     </Layout>
