@@ -3,7 +3,6 @@ import { Layout } from 'antd';
 import AdminHeader from '../header/header';
 import LeftMenu from '../menu/menu';
 import './admin.less';
-import GoodsSummary from '../goodssummary/goodssummary';
 
 const { Footer, Sider, Content } = Layout;
 
