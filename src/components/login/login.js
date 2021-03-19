@@ -18,7 +18,7 @@ const LoginForm = (props) => {
         if (res.status === 200 ) {
           // login successfully, jump to /
           setUser(res.data.user)
-          props.history.push('/');
+          props.history.push('/admin');
         }
       })
       .catch((err) => {
