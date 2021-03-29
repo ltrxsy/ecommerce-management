@@ -1,22 +1,19 @@
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "./login.less";
-import axios from "axios";
+import Axios from "../../commons/functions/axios";
 import {withRouter} from 'react-router-dom';
 
 
 const LoginForm = (props) => {
   const {setUser} =props;
-
-
-
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
-    axios
-      .post("/api/login", values)
+    Axios
+      .post("/login", values)
       .then((res) => {
         if (res.status === 200 ) {
-          // login successfully, jump to /
+          // login successfully, jump to /SSS
           setUser(res.data.user)
           props.history.push('/admin');
         }
