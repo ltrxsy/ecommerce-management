@@ -241,19 +241,19 @@ const categorySummary = [
 ]
 
 const employees = [
-  {employeeID: "ohV_5l", name: "Lily", department: "HR", title: "Sales", level: 5},
-  {employeeID: "fTk07z", name: "Manly", department: "Sales", title: "Buyer", level: 10},
-  {employeeID: "W8rt7a", name: "Ben", department: "IT", title: "IT Engineer", level: 8},
-  {employeeID: "kx8wsq", name: "Aaron", department: "HR", title: "Sales", level: 2},
-  {employeeID: "bo8vsn", name: "Vicky", department: "Operator", title: "Sales", level: 6},
-  {employeeID: "QiiomW", name: "Vivian", department: "HR", title: "Sales", level: 4},
-  {employeeID: "Pq7qxs", name: "Sean", department: "Service", title: "Driver", level: 5},
-  {employeeID: "MxyxoJ", name: "Will", department: "Channel", title: "Sales", level: 3},
-  {employeeID: "d$Y3cv", name: "George", department: "Sales", title: "Manager", level: 2},
-  {employeeID: "y>zJbh", name: "Ted", department: "IT", title: "Consultant", level: 5},
-  {employeeID: "Qi_omW", name: "Fish", department: "HR", title: "Sales", level: 4},
-  {employeeID: "bqvqxs", name: "Shane", department: "Service", title: "Driver", level: 5},
-  {employeeID: "dxycoJ", name: "Chunk", department: "Channel", title: "Sales", level: 3},
+  {employeeID: "ohV_5l", name: "Lily", department: "HR", title: "Sales", level: 5, address: "No 5 Ave, New Work"},
+  {employeeID: "fTk07z", name: "Manly", department: "Sales", title: "Buyer", level: 10, address: "No 5 Ave, New Work"},
+  {employeeID: "W8rt7a", name: "Ben", department: "IT", title: "IT Engineer", level: 8, address: "No 5 Ave, New Work"},
+  {employeeID: "kx8wsq", name: "Aaron", department: "HR", title: "Sales", level: 2, address: "No 5 Ave, New Work"},
+  {employeeID: "bo8vsn", name: "Vicky", department: "Operator", title: "Sales", level: 6, address: "No 5 Ave, New Work"},
+  {employeeID: "QiiomW", name: "Vivian", department: "HR", title: "Sales", level: 4, address: "No 5 Ave, New Work"},
+  {employeeID: "Pq7qxs", name: "Sean", department: "Service", title: "Driver", level: 5, address: "No 5 Ave, New Work"},
+  {employeeID: "MxyxoJ", name: "Will", department: "Channel", title: "Sales", level: 3, address: "No 5 Ave, New Work"},
+  {employeeID: "d$Y3cv", name: "George", department: "Sales", title: "Manager", level: 2, address: "No 5 Ave, New Work"},
+  {employeeID: "y>zJbh", name: "Ted", department: "IT", title: "Consultant", level: 5, address: "No 5 Ave, New Work"},
+  {employeeID: "Qi_omW", name: "Fish", department: "HR", title: "Sales", level: 4, address: "No 5 Ave, New Work"},
+  {employeeID: "bqvqxs", name: "Shane", department: "Service", title: "Driver", level: 5, address: "No 5 Ave, New Work"},
+  {employeeID: "dxycoJ", name: "Chunk", department: "Channel", title: "Sales", level: 3, address: "No 5 Ave, New Work"},
 ]
 
 router.get('/goods/summary', function(req, res) {
@@ -265,7 +265,7 @@ router.get('/category/summary', function(req, res) {
 })
 
 router.get('/employees/:page', function(req, res) {
-  const page = findRoom(req.params.page)
+  const page = findRoom(req.params.page).id
   res.json({
     total: employees.length,
     employees: employees.slice(8*(page-1), 8*page),
@@ -316,17 +316,3 @@ router.route('/rooms/:roomId/messages')
 app.use('/api', router)
 app.listen(port)
 console.log(`API running at localhost:${port}/api`)
-
-
-/**
- * 
- * 和不同组开会，和手下的人开会
- * 写文档,会议
- * sprint plan，根据plan给别人发tickets
- * 参与开发
- * 
- * 和手下聊天，收集feedback
- * 保持良好关系
- * 
- */
-

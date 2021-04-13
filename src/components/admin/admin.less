@@ -1,4 +1,30 @@
-.ant-layout-sider {
+.ant-layout {
     height: 100vh;
-    background: #001529;
+    position: relative;
+
+    .ant-layout-header {
+        position:absolute;
+        width: 100%;
+        top:0;
+        left:0;
+    }
+
+    .ant-layout-sider {
+        height: 100vh;
+        background: #001529;
+    }
+
+    .ant-layout-footer {
+        position:absolute;
+        width: 100%;
+        bottom:0;
+    }
+
+    .ant-layout-content {
+        width: 100%;
+        position:absolute;
+        top:64px;
+        bottom:64px;
+        overflow: auto;
+    }
 }
