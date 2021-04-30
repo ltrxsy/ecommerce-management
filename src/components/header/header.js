@@ -16,8 +16,14 @@ const AdminHeader=(props)=>{
 
     return (
         <Header id='header'>
-        <Button onClick={logoutHandler} type="link">Log Out</Button>
+            <div className='welcome'>
+                Welcome to my dashboard
+            </div>
+            <div className="logout">
+                <Button onClick={logoutHandler} type="link">Log Out</Button>
+            </div>
         </Header>
+        
     )
 }
 

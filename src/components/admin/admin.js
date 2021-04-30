@@ -16,7 +16,7 @@ const Admin =(props)=>{
       <Layout>
         <AdminHeader {...props} /> 
         <Content>{props.children}</Content>
-        <Footer>Footer</Footer>
+        <Footer>&#169; Copyright Alex Liu</Footer>
       </Layout>
     </Layout>
     )

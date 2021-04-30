@@ -35,45 +35,28 @@ const dataSource = [
     },
   ];
 
-const employeeTable=props=>{
-    let {columns,dataSource}=props
-
-    const getTableHead=()=>{
-        return Object.keys(columns[0]).map((item,index)=>{
-            return <th>{item}</th>
-        })
-        
+const getColumns=(datasource=[])=>{
+    let items
+    if (datasource.length) {
+        items=Object.keys(datasource[0])
     }
-
-    const getTableBody=()=>{
-        return dataSource.map((item,idx)=>{
-          return (
-            <tr>
-              <td>{item}</td>
-            </tr>
-          )
-        })
-      }
-
-    return (
-        <table>
-            <thead>
-                <tr>
-                    {getTableHead()}
-                </tr>
-            </thead>
-            <tbody>
-                {getTableBody()}
-            </tbody>
-        </table>
-    )
+    else{
+        items=datasource
+    }
+	// const items=
+    // datasource.length? Object.keys(datasource[0]): datasource
+  	items.splice(0,1)
+  
+  let columns=[]
+  for (let i=0; i<items.length; i++){
+  	columns.push ({title:items[i], dataIndex:items[i], key:items[i]})
+  }  
+	
+  return columns
 }
 
-
-
-
 function EmployeeSummary(props) {
-    const [data, setData]=useState(null)
+    const [data, setData]=useState({})
 
     useEffect(
         ()=>{
@@ -93,8 +76,8 @@ function EmployeeSummary(props) {
             <Breadcrumb.Item>
               <a href="">Summary</a>
             </Breadcrumb.Item>
-            <Table dataSource={data.employees} columns={getColumns(data.employees)} />;
           </Breadcrumb>
+          <Table dataSource={data?.employees} columns={getColumns(data.employees)} />
         </div>
       );
 }

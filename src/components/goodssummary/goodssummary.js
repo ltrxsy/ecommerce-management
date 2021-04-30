@@ -27,11 +27,13 @@ function GoodsSummary(props) {
           <a href="">Summary</a>
         </Breadcrumb.Item>
       </Breadcrumb>
-      <CategorySummary 
-        data={data.category}
-      />
-      <SalesSummary data={data.sales} />
-      <StatusSummary data={data.status} />
+      <div className='graph-container'>
+        <CategorySummary 
+          data={data.category}
+        />
+        <SalesSummary data={data.sales} />
+        <StatusSummary data={data.status} />
+        </div>
     </div>
   );
 }

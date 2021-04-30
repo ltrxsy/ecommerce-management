@@ -7,7 +7,7 @@ function CategorySummary(props) {
   const {data}=props;
 
   return (
-  <div>
+  <div className="category-graph">
     <Title text="Category" level="level2"/>
     <Chart height={300} autoFit data={data} >
         <Interval position="category*total"  />

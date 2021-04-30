@@ -8,7 +8,7 @@ function SalesSummary(props) {
   const {data} =props;
   
   return (
-    <div>
+    <div className="sales-graph">
       <Title text="Sales" level="level2" />
       <Chart
         padding={[30, 20, 60, 40]}
